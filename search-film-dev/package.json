@@ -1,0 +1,25 @@
+{
+  "name": "vue-film-search-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build"
+  },
+  "dependencies": {
+    "@trevoreyre/autocomplete-vue": "^2.0.2",
+    "core-js": "^2.6.5",
+    "materialize-css": "^1.0.0-rc.2",
+    "vue": "^2.6.10",
+    "vue-router": "^3.0.3",
+    "vuejs-paginate": "^2.1.0",
+    "vuex": "^3.0.1"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.11.0",
+    "@vue/cli-service": "^3.11.0",
+    "node-sass": "^4.9.0",
+    "sass-loader": "^7.1.0",
+    "vue-template-compiler": "^2.6.10"
+  }
+}
