@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ciklum test</title>
+        <link rel="shortcut icon" href="#">
+        <script src="https://kit.fontawesome.com/c6a282f1b4.js" crossorigin="anonymous"></script>
+    </head>
+    <body class="body">
+      <header class="header header_style border_bottom">
+        <a href="#" class="logo header__logo logo_clear-link logo_style">TODOList</a>
+      </header>
+      <main class="main body__main">
+        <section class="section-filter main__section-filter">
+          <div class="section-filter__search-container search-container_styles">
+            <input class="input search-container__input" type="text" placeholder="Search by title" id="searchByTitle">
+            <i class="fa fa-search search-container__magnifier"></i>
+          </div>
+          <div class="section-filter__status-container status-container_styles">
+            <select class="select select_styled_grey" id="searchByStatus">
+              <option value="all" selected>all</option>
+              <option value="open">open</option>
+              <option value="done">done</option>
+            </select>
+          </div>
+          <div class="section-filter__priority-container">
+            <select class="select select_styled_grey" id="searchByPriority">
+              <option value="all" selected>all</option>
+              <option value="high">high</option>
+              <option value="normal">normal</option>
+              <option value="low">low</option>
+            </select>
+          </div>
+          <button class="button button_raised" id="openModal">Create</button>
+        </section>
+        <section id="todoListSection" class="section-todo-list main__section-todo-list">
+        </section>
+        <div class="modal" id="myModal">
+          <div class="content modal__content">
+            <form class="form content__form" name="todoForm">
+              <div class="input-field input-field_style">
+                <label class="input-field__label" for="title">Title:</label>
+                <input class="input input_styled_grey" placeholder="Title" id="title" type="text" name="title" required>
+              </div>
+              <div class="input-field input-field_style">
+                <label class="input-field__label" for="description">Description:</label>
+                <textarea class="input input_styled_grey text-area_styled" id="description" name="description"></textarea>
+              </div>
+              <div class="input-field input-field_style">
+                <label class="input-field__label" for="priority">Priority:</label>
+                <select class="select select_styled_grey id="priority" name="priority">
+                  <option value="high" selected>High</option>
+                  <option value="normal">Normal</option>
+                  <option value="low">Low</option>
+                </select>
+              </div>
+              <input id="todoId" name="todoId" type="hidden" >
+              <div class="form__actions">
+                <button class="button button_outline button_width_100px" id="close" type="reset">Cancel</button>
+                <button class="button button_raised button_width_100px" id="save" type="submit">Save</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </main>
+      <footer class="footer body__footer border_top footer_style">
+        <p class="footer_author-name">Max Tugay</p>
+      </footer>
+    <script type="text/javascript" src="/bundle.js"></script></body>
+</html>
