@@ -1,0 +1,26 @@
+<div *ngIf="recipe; else preloader">
+  <div class="col s12 margin-top-2rem">
+    <a class="btn grey darken-4" routerLink="/">
+      <i class="material-icons left">undo</i>
+      Back to main
+    </a>
+  </div>
+  <h4>{{recipe.title}}</h4>
+  <p>{{recipe.description}}</p>
+  <blockquote>{{recipe.createdAt | date: 'medium'}}</blockquote>
+  <ul class="collection with-header" *ngIf="oldRecipes.length">
+    <li class="collection-header"><h4>Old recipes</h4></li>
+    <li
+      *ngFor="let oldRecipe of oldRecipes"
+      class="collection-item"
+    >
+      <a [routerLink]="['/old-recipe', oldRecipe._id]" [queryParams]="{parent: recipe._id}">
+        Title: {{oldRecipe.title}}.
+        <span>Created date: {{oldRecipe.createdAt | date: 'medium'}}.</span>
+      </a>
+    </li>
+  </ul>
+</div>
+<ng-template #preloader>
+  <app-preloader></app-preloader>
+</ng-template>

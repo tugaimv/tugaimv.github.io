@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~materialize-css/sass/components/color-variables';
+
+$primary-color: color("grey", "darken-4") !default;
+$primary-color-light: lighten($primary-color, 15%) !default;
+$primary-color-dark: darken($primary-color, 15%) !default;
+
+$secondary-color: color("deep-purple", "accent-2") !default;
+$success-color: color("green", "base") !default;
+$error-color: color("red", "base") !default;
+$link-color: color("light-blue", "darken-1") !default;
+
+.margin-15px {
+  margin: 0 15px;
+}
+.margin-top-2rem {
+  margin-top: 2rem;
+}
+
+@import '~materialize-css/sass/materialize';
+

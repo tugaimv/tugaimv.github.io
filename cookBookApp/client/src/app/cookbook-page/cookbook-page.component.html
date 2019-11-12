@@ -1,0 +1,16 @@
+<div class="row" *ngIf="!loading; else preloader">
+  <div *ngIf="recipes; else empty">
+    <app-recipe-card
+      *ngFor="let recipe of recipes"
+      [recipe]="recipe"
+    ></app-recipe-card>
+  </div>
+  <ng-template #empty>
+    <div class="empty center">
+      <h4>Create your first recipe!</h4>
+    </div>
+  </ng-template>
+</div>
+<ng-template #preloader>
+  <app-preloader></app-preloader>
+</ng-template>

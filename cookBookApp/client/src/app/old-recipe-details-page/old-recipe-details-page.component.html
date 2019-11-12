@@ -1,0 +1,14 @@
+<div *ngIf="oldRecipe; else preloader">
+  <div class="col s12 margin-top-2rem">
+    <a class="btn grey darken-4" [routerLink]="['/recipe', id]">
+      <i class="material-icons left">undo</i>
+      Back to recipe
+    </a>
+  </div>
+  <h4>{{oldRecipe.title}}</h4>
+  <p>{{oldRecipe.description}}</p>
+  <blockquote>{{oldRecipe.createdAt | date: 'medium'}}</blockquote>
+</div>
+<ng-template #preloader>
+  <app-preloader></app-preloader>
+</ng-template>
