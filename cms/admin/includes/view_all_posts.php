@@ -35,11 +35,18 @@ if (isset($_GET['delete'])) {
       $post_comment_count = $row['post_comment_count'];
       $post_date = $row['post_date'];
 
+        $query_select_post = "select * from categories where cat_id = {$post_category_id}";
+        $select_category = mysqli_query($connection, $query_select_post);
+        while ($row = mysqli_fetch_assoc($select_category)){
+          $cat_title = $row['cat_title'];
+          $cat_id = $row['cat_id'];
+        }
+
       echo "<tr>
               <td>{$post_id}</td>
               <td>{$post_author}</td>
               <td>{$post_title}</td>
-              <td>{$post_category_id}</td>
+              <td>{$cat_title}</td>
               <td>{$post_status}</td>
               <td><img width='100px' src='../images/{$post_image}' alt='image'/></td>
               <td>{$post_tags}</td>

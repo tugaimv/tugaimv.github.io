@@ -16,15 +16,18 @@
                     <!-- Blog Entries Column -->
                     <div class="col-md-8">
                         <?php
-                            $query_post = 'SELECT * FROM posts';
-                            $query_exec_posts = mysqli_query($connection, $query_post);
-                            while ($row = mysqli_fetch_assoc($query_exec_posts)){
-                                $post_id = $row['post_id'];
-                                $post_title = $row['post_title'];
-                                $post_author = $row['post_author'];
-                                $post_date = $row['post_date'];
-                                $post_image = $row['post_image'];
-                                $post_content = substr($row['post_content'], 0, 150);
+                            if(isset($_GET['cat_id'])){
+                                $cat_id = $_GET['cat_id'];
+                                $query_post = "SELECT * FROM posts where post_category_id = {$cat_id}";
+                                $query_exec_posts = mysqli_query($connection, $query_post);
+                                while ($row = mysqli_fetch_assoc($query_exec_posts)){
+                                    $post_id = $row['post_id'];
+                                    $post_title = $row['post_title'];
+                                    $post_author = $row['post_author'];
+                                    $post_date = $row['post_date'];
+                                    $post_image = $row['post_image'];
+                                    $post_content = substr($row['post_content'], 0, 150);
+                            
                         ?>
 
         
@@ -49,7 +52,7 @@
         
                         <hr>
 
-                        <?php } ?>
+                        <?php }} ?>
         
                     </div>
 
