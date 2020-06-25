@@ -1,9 +1,21 @@
 <?php
 //Delete post logic
 if (isset($_GET['delete'])) {
-  $the_post_id = $_GET['delete'];
-  $query = "DELETE from posts WHERE post_id = {$the_post_id}";
+  $the_comment_id = $_GET['delete'];
+  $query = "DELETE from comments WHERE comment_id = {$the_comment_id}";
   $delete_query = mysqli_query($connection, $query);
+}
+// Approve
+if(isset($_GET['approve'])){
+  $comment_id = $_GET['approve'];
+  $query = "UPDATE comments set comment_status = 'approve' WHERE comment_id = {$comment_id}";
+  $update_query = mysqli_query($connection, $query);
+}
+// Unapprove
+if(isset($_GET['unapprove'])){
+  $comment_id = $_GET['unapprove'];
+  $query = "UPDATE comments set comment_status = 'unapprove' WHERE comment_id = {$comment_id}";
+  $update_query = mysqli_query($connection, $query);
 }
 ?>
 <table class="table table-bordered table-hover">
@@ -35,11 +47,11 @@ if (isset($_GET['delete'])) {
       $comment_date = $row['comment_date'];
  
 
-        $query_select_post = "select * from categories where cat_id = {$post_category_id}";
-        $select_category = mysqli_query($connection, $query_select_post);
-        while ($row = mysqli_fetch_assoc($select_category)){
-          $cat_title = $row['cat_title'];
-          $cat_id = $row['cat_id'];
+        $query_select_post = "select * from posts where post_id = {$comment_post_id}";
+        $select_post = mysqli_query($connection, $query_select_post);
+        while ($row = mysqli_fetch_assoc($select_post)){
+          $post_title = $row['post_title'];
+          $post_id = $row['post_id'];
         }
 
       echo "<tr>
@@ -48,11 +60,11 @@ if (isset($_GET['delete'])) {
               <td>{$comment_content}</td>
               <td>{$comment_email}</td>
               <td>{$comment_status}</td>
+              <td><a href='../post.php?p_id={$post_id}'>{$post_title}</a></td>
               <td>{$comment_date}</td>
-              <td><a href='posts.php?source=edit_post&p_id={$post_id}'>Aprrove</a></td>
-              <td><a href='posts.php?delete={$post_id}'>Unapprove</a></td>
-              <td><a href='posts.php?source=edit_post&p_id={$post_id}'>Edit</a></td>
-              <td><a href='posts.php?delete={$post_id}'>Delete</a></td>
+              <td><a href='comments.php?approve={$comment_id}'>Aprrove</a></td>
+              <td><a href='comments.php?unapprove={$comment_id}'>Unapprove</a></td>
+              <td><a href='comments.php?delete={$comment_id}'>Delete</a></td>
             </tr>";
     }
     ?>
