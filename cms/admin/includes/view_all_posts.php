@@ -18,6 +18,8 @@ if (isset($_GET['delete'])) {
       <td>Tags</td>
       <td>Comments</td>
       <td>Date</td>
+      <td>Edit</td>
+      <td>Delete</td>
     </tr>
   </thead>
   <tbody>
@@ -35,12 +37,12 @@ if (isset($_GET['delete'])) {
       $post_comment_count = $row['post_comment_count'];
       $post_date = $row['post_date'];
 
-        $query_select_post = "select * from categories where cat_id = {$post_category_id}";
-        $select_category = mysqli_query($connection, $query_select_post);
-        while ($row = mysqli_fetch_assoc($select_category)){
-          $cat_title = $row['cat_title'];
-          $cat_id = $row['cat_id'];
-        }
+      $query_select_post = "select * from categories where cat_id = {$post_category_id}";
+      $select_category = mysqli_query($connection, $query_select_post);
+      while ($row = mysqli_fetch_assoc($select_category)) {
+        $cat_title = $row['cat_title'];
+        $cat_id = $row['cat_id'];
+      }
 
       echo "<tr>
               <td>{$post_id}</td>
@@ -50,7 +52,7 @@ if (isset($_GET['delete'])) {
               <td>{$post_status}</td>
               <td><img width='100px' src='../images/{$post_image}' alt='image'/></td>
               <td>{$post_tags}</td>
-              <td>{$post_comments_count}</td>
+              <td>{$post_comment_count}</td>
               <td>{$post_date}</td>
               <td><a href='posts.php?source=edit_post&p_id={$post_id}'>Edit</a></td>
               <td><a href='posts.php?delete={$post_id}'>Delete</a></td>

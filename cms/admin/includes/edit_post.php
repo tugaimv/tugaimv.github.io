@@ -17,24 +17,24 @@ if (isset($_GET['p_id'])) {
     $post_date = $row['post_date'];
   }
 
-  if(isset($_POST['edit_post'])){
+  if (isset($_POST['edit_post'])) {
     $post_title = $_POST['title'];
     $post_author = $_POST['author'];
     $post_category_id = $_POST['post_category'];
     $post_status = $_POST['post_status'];
-  
+
     $post_image = $_FILES['image']['name'];
     $post_image_temp = $_FILES['image']['tmp_name'];
-  
+
     $post_tags = $_POST['post_tags'];
     $post_content = $_POST['post_content'];
 
     move_uploaded_file($post_image_temp, "../images/$post_image");
 
-    if(empty($post_image)){
+    if (empty($post_image)) {
       $query = "SELECT * from posts where post_id = {$post_id}";
       $select_image = mysqli_query($connection, $query);
-      while ($row = mysqli_fetch_assoc($select_image)){
+      while ($row = mysqli_fetch_assoc($select_image)) {
         $post_image = $row['post_image'];
       }
     }
@@ -52,6 +52,7 @@ if (isset($_GET['p_id'])) {
 
     $update_post = mysqli_query($connection, $query);
     confirmQuery($update_post);
+    header("Location: posts.php");
   }
 }
 
