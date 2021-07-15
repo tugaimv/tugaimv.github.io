@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/react-redux-stopwatch/static/css/main.1df220b6.chunk.css",
+    "main.js": "/react-redux-stopwatch/static/js/main.cff9d220.chunk.js",
+    "main.js.map": "/react-redux-stopwatch/static/js/main.cff9d220.chunk.js.map",
+    "runtime-main.js": "/react-redux-stopwatch/static/js/runtime-main.af762698.js",
+    "runtime-main.js.map": "/react-redux-stopwatch/static/js/runtime-main.af762698.js.map",
+    "static/js/2.e3603d3b.chunk.js": "/react-redux-stopwatch/static/js/2.e3603d3b.chunk.js",
+    "static/js/2.e3603d3b.chunk.js.map": "/react-redux-stopwatch/static/js/2.e3603d3b.chunk.js.map",
+    "index.html": "/react-redux-stopwatch/index.html",
+    "static/css/main.1df220b6.chunk.css.map": "/react-redux-stopwatch/static/css/main.1df220b6.chunk.css.map",
+    "static/js/2.e3603d3b.chunk.js.LICENSE.txt": "/react-redux-stopwatch/static/js/2.e3603d3b.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.af762698.js",
+    "static/js/2.e3603d3b.chunk.js",
+    "static/css/main.1df220b6.chunk.css",
+    "static/js/main.cff9d220.chunk.js"
+  ]
+}
